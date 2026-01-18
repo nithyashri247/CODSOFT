@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Portfolio | Landing Page</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);color:white;}
+
+header{padding:20px 60px;display:flex;justify-content:space-between;align-items:center;}
+header h1{color:#00ffd5;}
+header nav a{color:white;margin-left:25px;text-decoration:none;transition:0.3s;}
+header nav a:hover{color:#00ffd5;}
+
+section{padding:80px 60px;}
+.title{text-align:center;margin-bottom:50px;color:#00ffd5;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
+.card{
+background:rgba(255,255,255,0.12);
+padding:30px;
+border-radius:20px;
+text-align:center;
+cursor:pointer;
+transition:0.4s;
+}
+.card:hover{transform:translateY(-10px);}
+.card i{font-size:40px;color:#00ffd5;margin-bottom:15px;}
+.dark{background:#000;}
+
+/* HERO */
+.hero{
+height:90vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+.hero img{
+width:250px;
+height:250px;
+border-radius:50%;   /* perfect circle */
+border:4px solid #00ffd5;
+object-fit:cover;    /* crop & fill */
+margin-bottom:20px;
+display:block;
+}
+.hero h2{font-size:44px;}
+.hero span{color:#00ffd5;}
+.hero p{width:70%;margin-top:15px;font-size:18px;}
+.hero button{
+margin-top:15px;
+padding:16px 50px;
+border:none;
+border-radius:30px;
+background:#00ffd5;
+cursor:pointer;
+transition:0.3s;
+color:#000;
+font-weight:600;
+}
+.hero button:hover{
+background:#00aeb2;
+color:white;
+}
+
+/* CONTACT */
+.contact-box{max-width:600px;margin:auto;}
+.contact-box input,
+.contact-box textarea{width:100%;padding:15px;margin-bottom:20px;border:none;border-radius:10px;outline:none;}
+.contact-box button{padding:12px 30px;border:none;border-radius:25px;background:#00ffd5;cursor:pointer;transition:0.3s;color:#000;font-weight:600;}
+.contact-box button:hover{background:#00aeb2;}
+
+/* POPUP */
+.popup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);display:none;justify-content:center;align-items:center;padding:20px;}
+.popup-box{background:#111;padding:40px;border-radius:20px;max-width:800px;}
+.popup-box h2{color:#00ffd5;margin-bottom:15px;}
+.popup-box img{width:100%;border-radius:15px;margin:15px 0;}
+.popup-box p{line-height:1.8;text-align:justify;}
+.close{margin-top:20px;padding:10px 25px;border:none;border-radius:20px;background:#00ffd5;cursor:pointer;transition:0.3s;}
+.close:hover{background:#00aeb2;}
+
+footer{text-align:center;padding:25px;background:#000;}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>MyPortfolio</h1>
+<nav>
+<a href="#">Home</a>
+<a href="#skills">Skills</a>
+<a href="#services">Services</a>
+<a href="#experience">Experience</a>
+<a href="#projects">Works</a>
+<a href="#testimonials">Testimonials</a>
+<a href="#hobbies">Hobbies</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<!-- HERO / ABOUT ME -->
+<section class="hero">
+<img src="portfolio1.jpg.jpeg" alt="My Photo">
+<h2>Hello, I'm <span>Nithyashri S</span></h2>
+<p>I am a passionate B.Tech IT student with expertise in Web Development, Cyber Security, and modern technologies. I love building interactive, responsive, and creative websites that solve real-world problems. My goal is to learn continuously and contribute to impactful projects.</p>
+<button onclick="goSkills()">View My Skills</button>
+<button onclick="downloadResume()">download resume</button>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+<h2 class="title">My Skills</h2>
+<div class="grid">
+<div class="card" onclick="showSkill('html')"><i class="fab fa-html5"></i><h3>HTML</h3></div>
+<div class="card" onclick="showSkill('css')"><i class="fab fa-css3-alt"></i><h3>CSS</h3></div>
+<div class="card" onclick="showSkill('js')"><i class="fab fa-js"></i><h3>JavaScript</h3></div>
+<div class="card" onclick="showSkill('cyber')"><i class="fas fa-shield-halved"></i><h3>Cyber Security</h3></div>
+<div class="card" onclick="showSkill('python')"><i class="fab fa-python"></i><h3>Python</h3></div>
+<div class="card" onclick="showSkill('react')"><i class="fab fa-react"></i><h3>React</h3></div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+<h2 class="title">My Services</h2>
+<div class="grid">
+<div class="card" onclick="showService('web')"><i class="fas fa-laptop-code"></i><h3>Web Development</h3></div>
+<div class="card" onclick="showService('cyber')"><i class="fas fa-shield-alt"></i><h3>Cyber Security</h3></div>
+<div class="card" onclick="showService('uiux')"><i class="fas fa-pencil-ruler"></i><h3>UI/UX Design</h3></div>
+<div class="card" onclick="showService('automation')"><i class="fas fa-robot"></i><h3>Automation Scripts</h3></div>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="dark">
+<h2 class="title">Experience</h2>
+<div class="grid">
+<div class="card" onclick="showExperience('intern')"><i class="fas fa-briefcase"></i><h3>Internship</h3></div>
+<div class="card" onclick="showExperience('freelance')"><i class="fas fa-people-carry"></i><h3>Freelance Projects</h3></div>
+<div class="card" onclick="showExperience('college')"><i class="fas fa-university"></i><h3>College Projects</h3></div>
+<div class="card" onclick="showExperience('community')"><i class="fas fa-users"></i><h3>Community Contribution</h3></div>
+</div>
+</section>
+
+<!-- WORKS / PROJECTS -->
+<section id="projects">
+<h2 class="title">My Works</h2>
+<div class="grid">
+<div class="card" onclick="showProject('portfolio')"><i class="fas fa-laptop-code"></i><h3>Portfolio Website</h3></div>
+<div class="card" onclick="showProject('landing')"><i class="fas fa-rocket"></i><h3>Landing Page Project</h3></div>
+<div class="card" onclick="showProject('green')"><i class="fas fa-leaf"></i><h3>Green Tip App</h3></div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+<h2 class="title">Testimonials</h2>
+<div class="grid">
+<div class="card">"Great teamwork and creativity!" - Mentor</div>
+<div class="card">"Innovative approach in projects." - Professor</div>
+<div class="card">"Strong problem-solving skills." - Peer</div>
+</div>
+</section>
+
+<!-- HOBBIES -->
+<section id="hobbies" class="dark">
+<h2 class="title">Hobbies & Interests</h2>
+<div class="grid">
+<div class="card"><i class="fas fa-gamepad"></i><h3>Gaming</h3></div>
+<div class="card"><i class="fas fa-music"></i><h3>Music</h3></div>
+<div class="card"><i class="fas fa-book"></i><h3>Reading</h3></div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="dark">
+<h2 class="title">Contact Me</h2>
+<div class="contact-box">
+<input type="text" id="name" placeholder="Your Name">
+<input type="email" id="email" placeholder="Your Email">
+<textarea rows="4" id="msg" placeholder="Your Message"></textarea>
+<button onclick="sendMsg()">Send Message</button>
+<p id="status" style="margin-top:15px;"></p>
+</div>
+</section>
+
+<footer>© 2025 My Portfolio | Designed by Me</footer>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+<div class="popup-box">
+<h2 id="popTitle"></h2>
+<img id="popImage" src="" alt="" style="display:none;">
+<p id="popText"></p>
+<button class="close" onclick="closePopup()">Close</button>
+</div>
+</div>
+
+<script>
+function goSkills(){document.getElementById("skills").scrollIntoView({behavior:"smooth"});}
+
+// DOWNLOAD RESUME
+function downloadResume(){
+  const link = document.createElement('a');
+  link.href = 'resume.pdf.pdf';  // replace with your resume file name
+  link.download = 'resume.pdf.pdf'; 
+  link.click();
+}
+
+// SKILLS
+function showSkill(skill){
+const skills={html:{title:"HTML", text:"HTML is the backbone of web development. I use HTML to structure websites with headings, paragraphs, links, images, forms, and semantic tags. A solid understanding of HTML ensures accessibility and SEO. My HTML skills allow me to build responsive, clean, and well-structured websites, making them user-friendly and easy to maintain."},css:{title:"CSS", text:"CSS styles and designs web pages. I use CSS to manage colors, fonts, layouts, animations, and responsiveness. Techniques like Flexbox and Grid let me create modern, visually appealing, and interactive websites. CSS transforms basic HTML into professional designs while enhancing user experience and engagement."},js:{title:"JavaScript", text:"JavaScript adds interactivity and dynamic content. I use JS to handle events, form validation, DOM manipulation, animations, and popups. It allows me to create responsive web applications, interactive features, and real-time updates, making websites engaging and functional."},cyber:{title:"Cyber Security", text:"Cyber Security ensures protection of data, networks, and applications. I understand basic security principles like authentication, encryption, secure coding, and safe browsing. My knowledge helps me develop safe, reliable websites while keeping user data secure from potential threats."},python:{title:"Python", text:"Python is a versatile programming language used for web development, automation, data analysis, and more. I use Python to write scripts, automate tasks, and develop small web projects. Python's simplicity and readability allow me to focus on logic and problem-solving efficiently."},react:{title:"React", text:"React is a modern JavaScript library used to build user interfaces. I use React to create dynamic, component-based web applications that are scalable and maintainable. Understanding React allows me to develop professional front-end projects with reusable components and responsive design."}};
+document.getElementById("popTitle").innerText=skills[skill].title;
+document.getElementById("popText").innerText=skills[skill].text;
+document.getElementById("popImage").style.display="none";
+document.getElementById("popup").style.display="flex";
+}
+
+// SERVICES
+function showService(service){
+const services={web:{title:"Web Development", text:"I offer full-stack web development services including responsive website creation using HTML, CSS, JS, React and backend integration. My goal is to build functional, fast, and user-friendly websites tailored to client needs."},cyber:{title:"Cyber Security", text:"I provide basic cyber security services including secure coding, vulnerability awareness, and data protection strategies. I help ensure applications and systems remain safe against common threats."},uiux:{title:"UI/UX Design", text:"I design user interfaces and experiences focusing on clean layouts, intuitive navigation, and engaging visuals. My designs enhance usability and improve user satisfaction."},automation:{title:"Automation Scripts", text:"I create Python or JS scripts to automate repetitive tasks, improving efficiency and accuracy. These scripts can help with data handling, file management, and task scheduling."}};
+document.getElementById("popTitle").innerText=services[service].title;
+document.getElementById("popText").innerText=services[service].text;
+document.getElementById("popImage").style.display="none";
+document.getElementById("popup").style.display="flex";
+}
+
+// EXPERIENCE
+function showExperience(exp){
+const experience={intern:{title:"Internship Experience", text:"Completed internship in Web Development, where I worked on front-end projects using HTML, CSS, and JavaScript. Learned professional workflow, version control, and collaborative development."},freelance:{title:"Freelance Projects", text:"Handled small freelance projects building responsive websites and landing pages for clients. Gained experience in requirement analysis, design, and delivery within deadlines."},college:{title:"College Projects", text:"Worked on multiple college projects including portfolio website, landing page, and green tip app. Enhanced problem-solving, teamwork, and coding skills."},community:{title:"Community Contribution", text:"Participated in tech community events, workshops, and hackathons. Shared knowledge with peers and contributed to open-source projects."}};
+document.getElementById("popTitle").innerText=experience[exp].title;
+document.getElementById("popText").innerText=experience[exp].text;
+document.getElementById("popImage").style.display="none";
+document.getElementById("popup").style.display="flex";
+}
+
+// PROJECTS
+function showProject(proj){
+const projects={portfolio:{title:"Portfolio Website", text:"My Portfolio Website is a responsive site built with HTML, CSS, and JS. It showcases my skills, projects, and contact form in a clean, interactive design. The site is fully responsive, has smooth scrolling, interactive elements, and professional styling, providing a modern user experience.", image:"portfolio.png"},landing:{title:"Landing Page Project", text:"The Landing Page Project is a modern single-page site with innovative design, popups, and smooth scroll. It highlights features, contact form, and interactive elements. Built with HTML, CSS, and JS, it demonstrates creativity, technical skill, and front-end development capability.", image:"landing.png"},green:{title:"Green Tip App", text:"Green Tip App is an eco-awareness application concept that promotes sustainable practices. The app provides tips, reminders, and interactive content to encourage environmentally friendly behavior. Designed with clean UI, it demonstrates design thinking, app logic, and UX understanding.", image:"green.png"}};
+document.getElementById("popTitle").innerText=projects[proj].title;
+document.getElementById("popText").innerText=projects[proj].text;
+document.getElementById("popImage").src=projects[proj].image;
+document.getElementById("popImage").style.display="block";
+document.getElementById("popup").style.display="flex";
+}
+
+function closePopup(){document.getElementById("popup").style.display="none";}
+
+// CONTACT FORM
+function sendMsg(){
+let n=document.getElementById("name").value.trim();
+let e=document.getElementById("email").value.trim();
+let m=document.getElementById("msg").value.trim();
+let s=document.getElementById("status");
+if(n===""||e===""||m===""){s.innerText="⚠ Please fill all fields"; s.style.color="red";}
+else{s.innerText="✅ Message sent successfully!"; s.style.color="#00ffd5";
+document.getElementById("name").value=""; document.getElementById("email").value=""; document.getElementById("msg").value="";}
+}
+</script>
+
+</body>
+</html>
